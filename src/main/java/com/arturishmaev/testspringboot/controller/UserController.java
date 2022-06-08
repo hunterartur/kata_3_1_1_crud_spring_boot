@@ -6,9 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
@@ -23,7 +23,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/")
+    @GetMapping(value = "/")
     public String startPage(ModelMap model) {
         List<User> users = userService.getAllUsers();
         if (!users.isEmpty()) {
@@ -32,13 +32,13 @@ public class UserController {
         return "index";
     }
 
-    @RequestMapping(value = "/createUser")
+    @GetMapping(value = "/createUser")
     public String createUser(Model model) {
         model.addAttribute("user", new User());
         return "createUser";
     }
 
-    @RequestMapping("/saveUser")
+    @GetMapping("/saveUser")
     public String saveUser(@Valid @ModelAttribute User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "createUser";
@@ -48,7 +48,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/updateUser")
+    @GetMapping(value = "/updateUser")
     public String updateUser(Model model, @RequestParam Long id) {
         System.out.println(id);
         User user = userService.getUserById(id);
@@ -56,7 +56,7 @@ public class UserController {
         return "updateUser";
     }
 
-    @RequestMapping("/refreshUser")
+    @GetMapping("/refreshUser")
     public String refreshUser(@Valid @ModelAttribute User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "/updateUser";
@@ -66,7 +66,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/deleteUser")
+    @GetMapping(value = "/deleteUser")
     public String deleteUser(@RequestParam Long id) {
         userService.removeUserById(id);
         return "redirect:/";
