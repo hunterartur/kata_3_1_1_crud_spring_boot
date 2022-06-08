@@ -6,16 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="crud_spring_boot" />
+        <module name="testSpringBoot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="crud_spring_boot" target="1.8" />
+      <module name="testSpringBoot" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="crud_spring_boot" options="-parameters" />
+      <module name="testSpringBoot" options="-parameters" />
     </option>
   </component>
 </project>

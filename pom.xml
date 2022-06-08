@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.arturishmaev</groupId>
-    <artifactId>crud_spring_boot</artifactId>
+    <artifactId>testSpringBoot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>crud_spring_boot</name>
-    <description>crud_spring_boot</description>
+    <name>testSpringBoot</name>
+    <description>testSpringBoot</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

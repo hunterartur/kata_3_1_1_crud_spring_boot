@@ -1,13 +1,13 @@
-package com.arturishmaev.crud_spring_boot;
+package com.arturishmaev.testspringboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CrudSpringBootApplication {
+public class TestSpringBootApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CrudSpringBootApplication.class, args);
+        SpringApplication.run(TestSpringBootApplication.class, args);
     }
 
 }

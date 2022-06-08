@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/style.css}" th:rel="stylesheet"/>
+</head>
+<body>
+<div class="parent">
+    <div class="block">
+
+        <nav class="four">
+            <ul>
+                <li><a href="/"><i class="fa fa-home fa-fw"></i>Main</a></li>
+                <li><a href="/createUser">Create user</a></li>
+            </ul>
+        </nav>
+
+        <table class="table_col">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>lastname</th>
+                <th>age</th>
+                <th>hobby</th>
+                <th>sex</th>
+            </tr>
+
+            <th:block th:each="user : ${users}">
+                <tr>
+                    <td th:text="${user.id}"></td>
+                    <td ><a th:href="@{/updateUser(id=${user.id})}" th:text="${user.name}"></a></td>
+<!--                    <td th:text="${user.getName()}"></td>-->
+                    <td th:text="${user.lastname}"></td>
+                    <td th:text="${user.age}"></td>
+                    <td th:text="${user.hobby}"></td>
+                    <td th:text="${user.sex}"></td>
+                    <td><a th:href="@{/deleteUser(id=${user.id})}" th:text="remove"></a></td>
+                </tr>
+            </th:block>
+        </table>
+    </div>
+</div>
+</body>
+</html>

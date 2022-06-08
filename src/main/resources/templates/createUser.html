@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/style.css}" th:rel="stylesheet"/>
+</head>
+<body>
+<div class="parent">
+    <div class="block">
+
+        <nav class="four">
+            <ul>
+                <li><a href="/"><i class="fa fa-home fa-fw"></i>Main</a></li>
+                <li><a href="/createUser">Create user</a></li>
+            </ul>
+        </nav>
+
+        <form class="decor" th:action="@{/saveUser}" th:object="${user}">
+            <div class="circle"></div>
+            <div class="form-inner">
+                <h3>Create new user</h3>
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
+                <input type="text" name="name" th:field="*{name}" placeholder="name" required>
+                <p th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Name Error</p>
+                <input type="text" name="lastname" th:field="*{lastname}" placeholder="Lastname" required>
+                <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name Error</p>
+                <input type="text" name="age" th:field="*{age}" placeholder="age" required>
+                <p th:if="${#fields.hasErrors('hobby')}" th:errors="*{hobby}">Name Error</p>
+                <input type="text" name="hobby" th:field="*{hobby}" placeholder="hobby" required>
+                <select th:field="*{sex}">
+                    <option th:value="Man" th:text="Male"></option>
+                    <option th:value="Woman" th:text="Female"></option>
+                </select>
+                <input type="submit" value="Send">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

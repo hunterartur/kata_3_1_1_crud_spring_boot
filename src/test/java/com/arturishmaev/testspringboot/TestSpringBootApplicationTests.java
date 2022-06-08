@@ -1,10 +1,10 @@
-package com.arturishmaev.crud_spring_boot;
+package com.arturishmaev.testspringboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CrudSpringBootApplicationTests {
+class TestSpringBootApplicationTests {
 
     @Test
     void contextLoads() {

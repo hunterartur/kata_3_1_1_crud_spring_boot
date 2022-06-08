@@ -1,43 +1,48 @@
-package com.arturishmaev.crud_spring_boot.model;
+package com.arturishmaev.testspringboot.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @NotNull(message = "The field should not be empty!")
-    @Size(min = 2, message = "At least 2 letters!")
+    @NotEmpty(message = "The field should not be empty!")
+    @Size(min = 2, max = 255, message = "Minimum two simbols!")
     @Column(name = "name")
     private String name;
 
-    @NotNull(message = "The field should not be empty!")
+    @NotEmpty(message = "The field should not be empty!")
     @Column(name = "lastname")
     private String lastname;
 
-    @Min(18)
-    @Max(120)
+    @Min(value = 18, message = "Minimum 18!")
     @Column(name = "age")
-    private int age;
+    private byte age;
 
-    @NotNull(message = "The field should not be empty!")
-    @Column(name = "email")
-    private String email;
+    @NotEmpty(message = "The field should not be empty!")
+    @Column(name = "hobby")
+    private String hobby;
+
+
+    @Column(name = "sex")
+    private Sex sex;
 
     public User() {
     }
 
-    public User(String name, String lastname, int age, String email) {
+    public User(String name, String lastname, byte age, String hobby, Sex sex) {
         this.name = name;
         this.lastname = lastname;
         this.age = age;
-        this.email = email;
+        this.hobby = hobby;
+        this.sex = sex;
     }
 
     public Long getId() {
@@ -64,20 +69,28 @@ public class User {
         this.lastname = lastname;
     }
 
-    public int getAge() {
+    public byte getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(byte age) {
         this.age = age;
     }
 
-    public String getEmail() {
-        return email;
+    public String getHobby() {
+        return hobby;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
     }
 
     @Override
@@ -87,9 +100,8 @@ public class User {
                 ", name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", age=" + age +
-                ", email='" + email + '\'' +
+                ", hobby='" + hobby + '\'' +
+                ", sex=" + sex +
                 '}';
     }
 }
-
-
