@@ -16,7 +16,7 @@
             </ul>
         </nav>
 
-        <form class="decor" th:action="@{/refreshUser}" th:object="${user}">
+        <form class="decor" th:method="put" th:action="@{/refreshUser}" th:object="${user}">
             <div class="circle"></div>
             <div class="form-inner">
                 <h3>Update new user</h3>

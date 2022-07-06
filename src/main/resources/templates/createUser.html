@@ -16,7 +16,7 @@
             </ul>
         </nav>
 
-        <form class="decor" th:action="@{/saveUser}" th:object="${user}">
+        <form class="decor" th:method="post" th:action="@{/saveUser}" th:object="${user}">
             <div class="circle"></div>
             <div class="form-inner">
                 <h3>Create new user</h3>

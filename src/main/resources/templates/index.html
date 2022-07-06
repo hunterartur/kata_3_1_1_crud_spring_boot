@@ -35,7 +35,15 @@
                     <td th:text="${user.age}"></td>
                     <td th:text="${user.hobby}"></td>
                     <td th:text="${user.sex}"></td>
-                    <td><a th:href="@{/deleteUser(id=${user.id})}" th:text="remove"></a></td>
+<!--                    <td><a th:href="@{/deleteUser(id=${user.id})}" th:text="remove"></a></td>-->
+                    <td>
+                        <div>
+                            <form class="decor" th:method="delete" th:action="@{/deleteUser}" th:object="${user}">
+                                <input type="hidden" th:name="id" th:value="${user.id}">
+                                <input type="submit" value="delete">
+                            </form>
+                        </div>
+                    </td>
                 </tr>
             </th:block>
         </table>
